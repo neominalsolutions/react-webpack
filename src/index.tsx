@@ -13,6 +13,8 @@ import UseRef from './pages/hooks/pages/useRef';
 import useImperative from './pages/hooks/pages/useImperative';
 import UseReducer from './pages/hooks/pages/useReducer';
 import useNonImperative from './pages/hooks/pages/useNonImperative';
+import ContextAPI from './pages/state-managements';
+import FavoriteProducts from './pages/state-managements/pages/favori.products';
 
 // ana component
 const App = () => {
@@ -21,7 +23,15 @@ const App = () => {
 			<h1 className="test">Hello Webpack</h1>
 			<img src={lionPng} alt="placeholder" />
 			<p>Deneme</p>
-			<Link to="/memoisation">Memoisation</Link> <Link to="/hooks">Hooks</Link>
+			<Link style={{ padding: 5 }} to="/memoisation">
+				Memoisation
+			</Link>
+			<Link style={{ padding: 5 }} to="/hooks">
+				Hooks
+			</Link>
+			<Link style={{ padding: 5 }} to="/products">
+				Products
+			</Link>
 		</div>
 	);
 };
@@ -74,6 +84,14 @@ const router = createBrowserRouter([
 				Component: UseReducer,
 			},
 		],
+	},
+	{
+		path: '/products',
+		Component: ContextAPI,
+	},
+	{
+		path: '/favori-products',
+		Component: FavoriteProducts,
 	},
 ]);
 
