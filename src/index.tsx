@@ -8,6 +8,10 @@ import Memoisation from './pages/memoisation';
 import ReactMemo from './pages/memoisation/pages/react-memo';
 import UseMemo from './pages/memoisation/pages/usememo';
 import UseCallback from './pages/memoisation/pages/usecallback';
+import Hooks from './pages/hooks';
+import UseRef from './pages/hooks/pages/useRef';
+import useImperative from './pages/hooks/pages/useImperative';
+import UseReducer from './pages/hooks/pages/useReducer';
 
 // ana component
 const App = () => {
@@ -16,7 +20,8 @@ const App = () => {
 			<h1 className="test">Hello Webpack</h1>
 			<img src={lionPng} alt="placeholder" />
 			<p>Deneme</p>
-			<Link to="/memoisation">Memoisation</Link>
+			<Link to="/memoisation">Memoisation</Link> {' '}
+			<Link to="/hooks">Hooks</Link>
 		</div>
 	);
 };
@@ -45,6 +50,24 @@ const router = createBrowserRouter([
 			{
 				path: 'useCallback',
 				Component: UseCallback,
+			},
+		],
+	},
+	{
+		path: '/hooks',
+		Component: Hooks,
+		children: [
+			{
+				path: 'useRef',
+				Component: UseRef,
+			},
+			{
+				path: 'useImperative',
+				Component: useImperative,
+			},
+			{
+				path: 'useReducer',
+				Component: UseReducer,
 			},
 		],
 	},
