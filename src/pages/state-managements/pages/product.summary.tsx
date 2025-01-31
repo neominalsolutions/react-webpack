@@ -2,7 +2,7 @@ import React from 'react';
 import FavoriteProducts from '../components/favorite.product';
 
 // listeye eklenen ürünleri ekranda gösterdiğimiz sayfa
-function ProductSummary() {
+function FavoriteSummary() {
 	return (
 		<>
 			<FavoriteProducts />
@@ -10,4 +10,4 @@ function ProductSummary() {
 	);
 }
 
-export default ProductSummary;
+export default FavoriteSummary;

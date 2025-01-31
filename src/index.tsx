@@ -13,10 +13,11 @@ import UseRef from './pages/hooks/pages/useRef';
 import useImperative from './pages/hooks/pages/useImperative';
 import UseReducer from './pages/hooks/pages/useReducer';
 import useNonImperative from './pages/hooks/pages/useNonImperative';
-import ContextAPI from './pages/state-managements';
+import ProductSummary from './pages/state-managements';
 import { FavoriProductProvider } from './pages/state-managements/contexts/favorite.product.context';
 import Products from './pages/state-managements/components/products';
 import FavoriteProducts from './pages/state-managements/components/favorite.product';
+import FavoriteSummary from './pages/state-managements/pages/product.summary';
 
 // ana component
 const App = () => {
@@ -31,8 +32,8 @@ const App = () => {
 			<Link style={{ padding: 5 }} to="/hooks">
 				Hooks
 			</Link>
-			<Link style={{ padding: 5 }} to="/products">
-				Products
+			<Link style={{ padding: 5 }} to="/product-summary">
+				Product Summary
 			</Link>
 		</div>
 	);
@@ -88,21 +89,21 @@ const router = createBrowserRouter([
 		],
 	},
 	{
-		path: '/products',
+		path: '/product-summary',
 		// Component: ContextAPI,
 		// Gereksiz render engellemek için bu yöntem daha doğru
 		element: (
-			<FavoriProductProvider> 
-				<Products />
+			<FavoriProductProvider>
+				<ProductSummary />
 			</FavoriProductProvider>
 		),
 	},
 	{
-		path: '/favori-products',
+		path: '/favorite-summary',
 		// Component: ProductSummary,
 		element: (
 			<FavoriProductProvider>
-				<FavoriteProducts />
+				<FavoriteSummary />
 			</FavoriProductProvider>
 		),
 	},
@@ -120,7 +121,4 @@ const router = createBrowserRouter([
 // 	</FavoriProductProvider>
 // );
 
-
-root.render(
- <RouterProvider router={router} />
-);
+root.render(<RouterProvider router={router} />);

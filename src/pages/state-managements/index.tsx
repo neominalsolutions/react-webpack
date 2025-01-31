@@ -2,15 +2,18 @@ import React from 'react';
 import Products from './components/products';
 import { Link } from 'react-router-dom';
 
-function ContextAPI() {
+function ProductSummary() {
+
+
+
 	return (
 		<>
 			<h1>Ürünlerimiz</h1>
 			<Products />
 
-			<Link to="/favori-products">Favori Ürünler</Link>
+			<Link to="/favorite-summary">Favori Ürünler</Link>
 		</>
 	);
 }
 
-export default ContextAPI;
+export default ProductSummary;
