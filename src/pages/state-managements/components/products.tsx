@@ -2,8 +2,20 @@
 
 import React from 'react';
 import { Product } from '../models/product.model';
+import {
+	FavoriteProductContext,
+	FavoriteProductContextType,
+} from '../contexts/favorite.product.context';
 
 function Products() {
+	const context = React.useContext(FavoriteProductContext);
+
+	if (!context) {
+		throw new Error('FavoriteProductContext is null');
+	}
+	
+	const { addItem } = context;
+
 	const [products, setProducts] = React.useState<Product[]>([
 		{ id: 1, name: 'Samsung S8', price: 3000 },
 		{ id: 2, name: 'Samsung S9', price: 4000 },
@@ -15,6 +27,7 @@ function Products() {
 	const addToFavorites = (product: Product) => {
 		// Favorilere ekleme işlemi
 		console.log('Favorilere eklendi', product);
+		addItem({ id: product.id, name: product.name, price: product.price });
 	};
 
 	return (

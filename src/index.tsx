@@ -14,7 +14,9 @@ import useImperative from './pages/hooks/pages/useImperative';
 import UseReducer from './pages/hooks/pages/useReducer';
 import useNonImperative from './pages/hooks/pages/useNonImperative';
 import ContextAPI from './pages/state-managements';
-import FavoriteProducts from './pages/state-managements/pages/favori.products';
+import { FavoriProductProvider } from './pages/state-managements/contexts/favorite.product.context';
+import Products from './pages/state-managements/components/products';
+import FavoriteProducts from './pages/state-managements/components/favorite.product';
 
 // ana component
 const App = () => {
@@ -87,13 +89,38 @@ const router = createBrowserRouter([
 	},
 	{
 		path: '/products',
-		Component: ContextAPI,
+		// Component: ContextAPI,
+		// Gereksiz render engellemek için bu yöntem daha doğru
+		element: (
+			<FavoriProductProvider> 
+				<Products />
+			</FavoriProductProvider>
+		),
 	},
 	{
 		path: '/favori-products',
-		Component: FavoriteProducts,
+		// Component: ProductSummary,
+		element: (
+			<FavoriProductProvider>
+				<FavoriteProducts />
+			</FavoriProductProvider>
+		),
 	},
 ]);
 
 // div id'si root olan elemente App componentini render et
-root.render(<RouterProvider router={router} />);
+// FavoriteProductProvider ile context'i uygulamaya dahil ettik
+
+// avantajı => uygulama genelinde tüm componentlerin erişebileceği bir state oluşturduk
+// dezavantajı => global state olduğu için uygulama büyüdükçe yönetilmesi zor olabilir ve gereksiz render işlemleri olabilir
+
+// root.render(
+// 	<FavoriProductProvider>
+// 		<RouterProvider router={router} />
+// 	</FavoriProductProvider>
+// );
+
+
+root.render(
+ <RouterProvider router={router} />
+);
