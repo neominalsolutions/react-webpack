@@ -1,26 +1,26 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import styles from './Memoisation.module.css';
+import './index.css';
 
 function Memoisation() {
 	return (
 		<>
 			<NavLink
-				className={(isActive) => (isActive ? styles['active-link'] : '')}
-				to="memoisation/react-memo"
+				className={({ isActive }) => (isActive ? 'active-link' : '')}
+				to="react-memo"
 			>
 				React Memo
 			</NavLink>{' '}
 			<NavLink
-				className={(isActive) => (isActive ? styles['active-link'] : '')}
-				to="memoisation/useMemo"
+				className={({ isActive }) => (isActive ? 'active-link' : '')}
+				to="useMemo"
 			>
 				UseMemo Hook
 			</NavLink>{' '}
 			{''}
 			<NavLink
-				className={(isActive) => (isActive ? styles['active-link'] : '')}
-				to="memoisation/useCallback"
+				className={({ isActive }) => (isActive ? 'active-link' : '')}
+				to="useCallback"
 			>
 				UseCallback Hook
 			</NavLink>{' '}

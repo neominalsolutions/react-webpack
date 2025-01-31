@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
 function ReactMemo() {
-    return (<></>);
+	return <>React Memo</>;
 }
 
 export default ReactMemo;

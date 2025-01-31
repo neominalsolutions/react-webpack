@@ -1,7 +1,7 @@
 import React from 'react';
 
 function UseCallback() {
-	return <></>;
+	return <>UseCallback</>;
 }
 
 export default UseCallback;
