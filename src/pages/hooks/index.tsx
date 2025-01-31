@@ -20,6 +20,13 @@ function Hooks() {
 			{''}
 			<NavLink
 				className={({ isActive }) => (isActive ? 'active-link' : '')}
+				to="useNonImperative"
+			>
+				Use NonImperative
+			</NavLink>{' '}
+			{''}
+			<NavLink
+				className={({ isActive }) => (isActive ? 'active-link' : '')}
 				to="useReducer"
 			>
 				Use Reducer

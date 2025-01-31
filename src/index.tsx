@@ -12,6 +12,7 @@ import Hooks from './pages/hooks';
 import UseRef from './pages/hooks/pages/useRef';
 import useImperative from './pages/hooks/pages/useImperative';
 import UseReducer from './pages/hooks/pages/useReducer';
+import useNonImperative from './pages/hooks/pages/useNonImperative';
 
 // ana component
 const App = () => {
@@ -20,8 +21,7 @@ const App = () => {
 			<h1 className="test">Hello Webpack</h1>
 			<img src={lionPng} alt="placeholder" />
 			<p>Deneme</p>
-			<Link to="/memoisation">Memoisation</Link> {' '}
-			<Link to="/hooks">Hooks</Link>
+			<Link to="/memoisation">Memoisation</Link> <Link to="/hooks">Hooks</Link>
 		</div>
 	);
 };
@@ -64,6 +64,10 @@ const router = createBrowserRouter([
 			{
 				path: 'useImperative',
 				Component: useImperative,
+			},
+			{
+				path: 'useNonImperative',
+				Component: useNonImperative,
 			},
 			{
 				path: 'useReducer',
