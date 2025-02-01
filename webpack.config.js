@@ -7,6 +7,10 @@ module.exports = {
 		filename: 'index.js', // output file
 		path: path.resolve(__dirname, 'build'), // output directory
 	},
+	devServer: {
+		historyApiFallback: true,
+		port: 3000,
+	},
 	module: {
 		rules: [
 			{
